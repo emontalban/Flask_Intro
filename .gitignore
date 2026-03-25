@@ -1,0 +1,11 @@
+# Entornos virtuales
+venv/
+.env/
+.venv/
+
+# Pipenv (a veces crea rutas)
+pipenv*
+
+# Python
+__pycache__/
+*.pyc
