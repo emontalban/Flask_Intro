@@ -5,7 +5,15 @@ venv/
 
 # Pipenv (a veces crea rutas)
 pipenv*
+Pipfile.lock
 
 # Python
 __pycache__/
 *.pyc
+
+#  VSCode
+.vscode/
+
+# Base de datos 
+*.sqlite
+
