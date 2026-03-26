@@ -79,5 +79,129 @@ A partir de la versión 6.0, MongoDB ya no incluye la terminal de comandos (mong
 Ve a https://www.mongodb.com/try/download/shell.  
 Descarga el archivo Zip.    
 Descomprímelo y copia el archivo mongosh.exe dentro de la carpeta bin que configuramos en el paso 3 (la de Program Files).    
-Ahora, si escribes mongosh en tu terminal, entrarás a la consola de la base de datos.  
+Si escribes`mongosh` en tu terminal, entrarás a la consola de la base de datos.  
+
+   - `show dbs` Para ver las base de datos que tienes  
+   - `use 'nombre de la bbdd' ` crea una base de datos pero no la va a reconocer hasta que agregemos datos puedo usar `db` despues ya que cree un objeto.
+   - `db.createUser({'user'})` para crear un usuario
+   - `db.getUser('user') o db.getUsers()` para ver un usario o todos
+   - `db.dropUser('user')` borra un usuario  
+   - `db.createCollection('collection')` se crea las colecciones ('tablas' en SQL)  
+   - `show collections` muestra las colecciones
+   - `db.books.find()` para buscar todos los datos dentro de un coleccion (books es el nombre de la colecion) 
+   - `db.books.find({name: "OOP Programming"})` pasandole un dato en concreto. 
+
+   Ejemplo create:
+   ```bash
+   db.createUser({ user: 'Hexe', 
+               pwd:'password',
+               customData:{startDate:new Date()},
+                 roles:[
+                     {role: 'clusterAdmin', db: 'admin'},
+                     {role: 'readAnyDatabase', db: 'admin'},
+                     'readWrite'
+                 ]
+     })
+   ```
+   Ejemplo insert un documento
+   ```bash
+   db.books.insert({ "name": "OOP Programming", 
+               "startDate": new Date(),
+                "author": [
+                     {"name": "Greg Stabilo"}                 
+                 ]
+    })
+   ```
+   Inserta varias objetos a al vez
+   ```bash
+   db.books.insertMany([
+    {
+        "name": "Python",
+        "publishedDate": new Date(),
+        "author": [
+            { "name": "Guido van Rossum" }
+        ]
+    },
+    {
+        "name": "JavaScript",
+        "publishedDate": new Date(),
+        "author": [
+            { "name": "Brendan Eich" }
+        ]
+    }  
+  ])
+
+   ```
+
+   Para encontrar un documentos dentro de la coleccion pero que te devuelva solo los datos solicitados, para ello hay que crear otro objeto para que te devuelva solo los que quiere para ello  le pones un numero 1 y si no quieres que salga no se ponen excepto el _id que tienes que pasarle un cero para que no aparezca es el unico.
+
+   ```bash
+  db.books.find(
+    {
+        name: "Python"
+    },
+    {
+        _id: 0,
+        name: 1,
+        author: 1
+    }
+  )
+   ```
+Tenemos varias librerias y para que nos de solo la primera usamos $slice con uno saca el uno con 2 saca 2 y con los negativos tambien pero empezando por detras
+   ```bash
+   db.languages.find(
+    {
+        name: "Java"
+    },
+    {
+        year:1,
+        creator:1,
+        name:1,
+        libraries:{$slice: 2}
+    }
+)
+   ```
+   Esto esta obsoleto
+   Para borrar usamos `remove()`
+   `db.books.remove({name:"OOP Programming"})` borra todos los items que haya.
+   `db.books.remove({name:"OOP Programming"}, 1)` si le pasamos un segundo parametro borra los que le indiquemos en este caso uno
+
+   Para borrar uno usamos `deleteOne` y para borrar muchos `deleteMany`
+
+   Para actualizar se usa `updateOne`
+   ```bash
+   db.languages.updateOne(
+        { name: "Java" },
+        {
+            $set: {
+            versions: [
+                { version: "8", release_year: 2014 },
+                { version: "11", release_year: 2018 },
+                { version: "17", release_year: 2021 }
+            ]
+            }
+        }
+    )
+   ```
+Y ahora queremos solo las versiones no el año para que solo nos de las versiones sera_
+```bash
+db.languages.find(
+   { name: "Kotlin" },
+   { 
+      name: 1,
+      "versions.version" :1
+   }
+)
+```
+Una colección en MongoDB es:
+
+Un conjunto de documentos relacionados que se almacenan dentro de una base de datos.  
+- Colección → agrupa datos (equivale a una tabla en SQL)
+- Documentos → cada elemento dentro de la colección  
+- Campos → los datos de cada documento
+
+La funcion `pretty()` sirve para mostrar los datos ordenados cuando te los devuelve en una sola linea
+
+
+
 
