@@ -56,42 +56,28 @@ Run service as Network Service user.
 Instalar MongoDB Compass: ¡Muy importante! Asegúrate de que esta casilla esté marcada. MongoDB Compass es la interfaz gráfica que te permitirá ver tus bases de datos sin usar comandos.  
 Haz clic en Install.
  
-3. Configurar las Variables de Entorno (PATH)
-Para poder usar el comando mongod o herramientas de terminal desde cualquier carpeta, debes añadir la ruta al sistema:
+- **3. Configurar las Variables de Entorno (PATH)**  
+Para poder usar el comando mongod o herramientas de terminal desde cualquier carpeta, debes añadir la ruta al sistema:  
+Busca en tu computadora la carpeta bin de MongoDB. Normalmente está en:  
+C:\Program Files\MongoDB\Server\7.0\bin (la versión puede variar).  
+Copia esa ruta.  
+En el buscador de Windows escribe: "Editar las variables de entorno del sistema".  
+Haz clic en el botón Variables de entorno.  
+En la lista de abajo ("Variables del sistema"), busca la que se llama Path y dale a Editar.  
+Haz clic en Nuevo y pega la ruta que copiaste.  
+Dale a Aceptar en todas las ventanas.  
 
-Busca en tu computadora la carpeta bin de MongoDB. Normalmente está en:
-
-C:\Program Files\MongoDB\Server\7.0\bin (la versión puede variar).
-
-Copia esa ruta.
-
-En el buscador de Windows escribe: "Editar las variables de entorno del sistema".
-
-Haz clic en el botón Variables de entorno.
-
-En la lista de abajo ("Variables del sistema"), busca la que se llama Path y dale a Editar.
-
-Haz clic en Nuevo y pega la ruta que copiaste.
-
-Dale a Aceptar en todas las ventanas.
-
-4. Verificar la instalación
+- **4. Verificar la instalación**
 Abre una terminal (CMD o PowerShell) y escribe:
-
-Bash
+```Bash
 mongod --version
-Si te responde con información de la versión, ¡felicidades! MongoDB está instalado.
+```
+Si te responde con información de la versión, MongoDB está instalado.
 
-5. El toque final: MongoDB Shell (mongosh)
+- **5. MongoDB Shell (mongosh)**
 A partir de la versión 6.0, MongoDB ya no incluye la terminal de comandos (mongo.exe) en el instalador principal. Si quieres usar la terminal para escribir consultas, debes bajar el MongoDB Shell:
-
-Ve a MongoDB Shell Download.
-
-Descarga el archivo Zip.
-
-Descomprímelo y copia el archivo mongosh.exe dentro de la carpeta bin que configuramos en el paso 3 (la de Program Files).
-
+Ve a https://www.mongodb.com/try/download/shell.
+Descarga el archivo Zip.  
+Descomprímelo y copia el archivo mongosh.exe dentro de la carpeta bin que configuramos en el paso 3 (la de Program Files).  
 Ahora, si escribes mongosh en tu terminal, entrarás a la consola de la base de datos.
 
-¿Qué sigue?
-Ahora que lo tienes instalado, ¿te gustaría que te enseñe cómo conectar Python con MongoDB usando la librería pymongo?
