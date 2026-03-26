@@ -74,10 +74,10 @@ mongod --version
 ```
 Si te responde con información de la versión, MongoDB está instalado.
 
-- **5. MongoDB Shell (mongosh)**
-A partir de la versión 6.0, MongoDB ya no incluye la terminal de comandos (mongo.exe) en el instalador principal. Si quieres usar la terminal para escribir consultas, debes bajar el MongoDB Shell:
-Ve a https://www.mongodb.com/try/download/shell.
-Descarga el archivo Zip.  
-Descomprímelo y copia el archivo mongosh.exe dentro de la carpeta bin que configuramos en el paso 3 (la de Program Files).  
-Ahora, si escribes mongosh en tu terminal, entrarás a la consola de la base de datos.
+- **5. MongoDB Shell (mongosh)**  
+A partir de la versión 6.0, MongoDB ya no incluye la terminal de comandos (mongo.exe) en el instalador principal. Si quieres usar la terminal para escribir consultas, debes bajar el MongoDB Shell:  
+Ve a https://www.mongodb.com/try/download/shell.  
+Descarga el archivo Zip.    
+Descomprímelo y copia el archivo mongosh.exe dentro de la carpeta bin que configuramos en el paso 3 (la de Program Files).    
+Ahora, si escribes mongosh en tu terminal, entrarás a la consola de la base de datos.  
 
