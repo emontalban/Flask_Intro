@@ -25,3 +25,12 @@ Desde la terminal  entramos en python y ejecutamos las siguientes instrucciones
 >>> with app.app_context():  
 ...    db.create_all()  
 ```
+## Eliminar archivos de VS code despues de haberlos subido a Git hub
+Si has subido los archivos y despues has creado .gitignore para solucionarlo  
+` git rm -r --cached .vscode`  
+y despues actualizas el repositorio  
+```
+git add .  
+git commit -m "Eliminar .vscode del repo"  
+git push  
+```
